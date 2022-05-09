@@ -18,3 +18,12 @@ const add = (x, y) => {
 module.exports.power = power;
 module.exports.multiply = multiply;
 module.exports.add = add;
+/**********************************************/
+// another way in which we can export the functions
+//used with destructring
+// const math = {
+//   power: power,
+//   multiply: multiply,
+//   add: add,
+// };
+// module.exports = math;
