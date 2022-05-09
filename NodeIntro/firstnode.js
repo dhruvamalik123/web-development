@@ -12,5 +12,9 @@ const power = (x, y) => {
 const multiply = (x, y) => {
   return x * y;
 };
+const add = (x, y) => {
+  return x + y;
+};
 module.exports.power = power;
 module.exports.multiply = multiply;
+module.exports.add = add;
