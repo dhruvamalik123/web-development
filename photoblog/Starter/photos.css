@@ -1,0 +1,14 @@
+img {
+  width: 30%;
+  margin: calc(10% / 6);
+  /*total percent left is 10% and we need margin on 6 sides , so left is 10/6=1.66 */
+}
+
+nav {
+  font-size: 80px;
+  /* font-weight: bold; */
+  font-family: "Moo Lah Lah", cursive;
+  text-decoration: underline dashed;
+  margin-left: calc(10% / 6);
+  /* we can add padding , border bottom  */
+}

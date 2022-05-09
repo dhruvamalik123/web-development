@@ -1,0 +1,48 @@
+h1,
+h2 {
+  color: #ff7759;
+}
+/* "#" used for id , "." used for class , there can only be one id , id is unique , where ass , we can have multiple
+tags the tags can be differnt (like in div , span and a href) with same classes*/
+#search {
+  background-color: #0b032d;
+}
+.tag {
+  color: #c52233;
+  background-color: #f2ff00;
+}
+/* all the anchor tags nested inside li are going to be modified , also known as descendents of li*/
+li a {
+  color: #ff0000;
+  text-decoration: none;
+}
+/*All the buttons inside class pup will show the hover effect*/
+.pup button:hover {
+  color: #2600d0;
+  background-color: #faa307;
+}
+li a:hover {
+  text-decoration: underline;
+}
+.pup a {
+  text-decoration: none;
+  color: #faa307;
+}
+/*Psuedo classes*/
+.pup a:hover {
+  text-decoration: underline;
+}
+.pup button:active {
+  background-color: #ff0000;
+}
+/*Pseudo Elements*/
+h2::first-letter {
+  color: #240046;
+  font-size: xx-large;
+}
+p::selection {
+  background-color: #fb5607;
+}
+p::first-line {
+  color: #ff0000;
+}

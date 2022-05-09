@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "iostream": "cpp"
+  },
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "mysql-connector-java-8.0.11.jar"
+  ]
+}

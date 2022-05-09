@@ -1,0 +1,34 @@
+/* #scorecard {
+  text-align: center; 
+border: 10px solid;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+img {
+  height: 200px;
+  width: 200px;
+}
+#pingpongimg {
+  padding-bottom: 0px;
+}
+#pingpongimg {
+  text-align: center;
+}
+ #pingpong {
+  text-align: left;
+}
+div {
+  text-align: center;
+}
+
+#score {
+  padding-right: 8em;
+}
+h1 {
+  text-align: center;
+  margin-top: 0px;
+}
+#scorekeeper {
+  padding-right: 2.8em;
+} */
