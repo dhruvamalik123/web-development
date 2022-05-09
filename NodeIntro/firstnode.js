@@ -27,3 +27,8 @@ module.exports.add = add;
 //   add: add,
 // };
 // module.exports = math;
+/**************************************************/
+// another way of exporting
+// module.exports.add=(x,y)=>x+y;
+// or
+// exports.add=(x,y)=>x+y;
