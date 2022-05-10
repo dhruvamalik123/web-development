@@ -7,4 +7,5 @@ figlet("Hello World!!", function (err, data) {
     return;
   }
   console.log(data.rainbow);
+  console.log("hello");
 });
