@@ -1,0 +1,1 @@
+const { franc, francAll } = require("franc");

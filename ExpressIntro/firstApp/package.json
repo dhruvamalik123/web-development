@@ -1,0 +1,11 @@
+{
+  "name": "firstapp",
+  "version": "1.0.0",
+  "description": "Creating first app using express framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dhruva Malik",
+  "license": "ISC"
+}
