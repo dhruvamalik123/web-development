@@ -13,7 +13,7 @@ name=sc.next();
 pname=sc.next();
 quantity=sc.nextInt();
 Class.forName("com.mysql.cj.jdbc.Driver"); 
-Connection   con=DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","leovaldez"); 
+Connection   con=DriverManager.getConnection("jdbc:mysql://localhost:3308/test","root","leovaldez"); 
 Statement stmt=con.createStatement();
 PreparedStatement ps=con.prepareStatement("insert into inventory values(?,?,?)"); 
 
