@@ -1,0 +1,14 @@
+{
+  "name": "startingwithrest",
+  "version": "1.0.0",
+  "description": "Starting with rest and learning how to create Restful applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dhruva",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

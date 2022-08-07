@@ -1,0 +1,12 @@
+<%- include("partials/head") %>
+
+    <%- include("partials/navbar") %>
+        <h1>
+            Your random number is :- <%= randnum %>
+        </h1>
+        <% if (randnum%2===0) { %>
+            <h2>This is an even number</h2>
+            <% } else { %>
+                <h2>This is an odd number</h2>
+                <% } %>
+                    <%- include("partials/footer") %>

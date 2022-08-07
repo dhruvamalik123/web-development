@@ -1,0 +1,29 @@
+<%- include("partials/head") %>
+    <%- include("partials/navbar") %>
+        <div class="container">
+            <h1>
+                <%= name %>
+            </h1>
+            <h2>
+                <%= description %>
+            </h2>
+            <p>
+                <%= subscribers %> Total Subscribers
+            </p>
+            <hr>
+            <% for(let post of posts) {%>
+                <article>
+                    <h3>
+                        <%= post.title %>
+                    </h3>
+                    <h3>
+                        <%= post.author %>
+                    </h3>
+                    <% if (post.img) { %>
+                        <img src=<%=post.img %> alt="an image here" height="200px">
+                        <% } %>
+                </article>
+                <hr>
+                <% } %>
+        </div>
+        <%- include("partials/footer") %>
