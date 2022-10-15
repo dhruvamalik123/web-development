@@ -70,6 +70,12 @@ Type 2:
 
       this returns the first occurrance matching the given condition
 
+Type 3:
+      db.<collection>.find({"fieldname.nestedFieldName":value})
+
+      for example:
+      
+
 ------------------------------------------------------------------------------------------------------------
 
 Update Collection
