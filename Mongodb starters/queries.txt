@@ -1,0 +1,94 @@
+installation link :  https://www.youtube.com/watch?v=MCpbfYvvoPY
+documentation link : https://www.mongodb.com/docs/manual/
+
+------------------------------------------------------------------------------------------------------------
+
+first run mongod (its a command to start mongodb server) from cmd or powershell(prefer powershell)
+then run mongo (its a command to start and use mongodb client) from cmd or powershell
+
+------------------------------------------------------------------------------------------------------------
+
+Check the avaiable Databases
+
+-> show databases
+      or
+-> show dbs
+
+------------------------------------------------------------------------------------------------------------
+
+Use Database
+
+->use <name of database> 
+if the database exists,it just uses it,and if the database specified does not exist , it just creates it
+
+example
+->use animalShelter
+
+NOTE:- The database does not show up in |show databases| till some data has been added/inserted inside the
+database
+
+------------------------------------------------------------------------------------------------------------
+
+Insert into Database
+
+Type 1:
+      db.<collection>.insertOne(<Data>)
+
+      for example:
+      db.dogs.insertOne({name:"Pluto",age:3,breed:"Dalmation",color:"Blue",catFriendly:true})
+
+      this inserts one  data in the collection "dogs" in the database "db" (db referes to the current database)
+
+Type 2:
+      db.<collection>.insert(<Data>)
+
+      for example:
+      db.dogs.insert([{ name:"Mylo" , age:5 , breed:"German" , catFriendly:false},
+      {name:"Yogi",age:14,breed:"pomerian",catFriendly:true }]) 
+
+      using just insert , we can one or more than one data inside the database db collection dogs
+
+
+------------------------------------------------------------------------------------------------------------
+
+View a collection or specfic data
+
+Type 1:
+      db.<collection>.find({})
+
+      for example:
+      db.dogs.find()
+      db.dogs.find({catFriendly:true})
+
+      this returns all the data in the collection "dogs" in the database "db" (db referes to the current database)
+      or we can give the fields using which we want to search the collection
+Type 2:
+      db.<collection>.findOne({<field_name>:value})
+
+      for example:
+      db.dogs.findOne({catFriendly:true}) 
+
+      this returns the first occurrance matching the given condition
+
+------------------------------------------------------------------------------------------------------------
+
+Update Collection
+
+Type 1:
+      db.<collection>.update({<condition>},{$set:{<values to be added or updated>}})
+
+      for example:
+      db.dogs.update({catFriendly:true},{$set{adopted:"yes",catFriendly:false}})
+
+      In this it first searches the field corresponding to the given condition , then it updates it with whatever 
+      follows after $set , and if the field does not exist , it creates the field , else , it updates the
+      existing fields
+
+Type 2:
+      db.<collection>.updateOne({<condition>},{$set:{<values to be added or updated>}})
+
+      for example:
+      db.dogs.update({catFriendly:true},{$set{adopted:"yes",catFriendly:false}})
+
+      the difference between Type 1 and Type 2 is that , the former changes all the occurrances while the latter 
+      changes only the first occurrances.
