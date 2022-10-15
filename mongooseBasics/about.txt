@@ -1,0 +1,32 @@
+models are java script classes that we make with the assistance of mongoose that represent
+the information in the mongoose database or specifically in some collection
+
+-----------------------------------------------------------------------------------------------
+if we insert just a single data , then we need to create the object , enter details using the schema
+then we have to use . save()
+for example
+  const Movie = mongoose.model("Movie", movieSchema);
+    const amadeus = new Movie({
+    title: "Amadeus",
+    year: 1986,
+    score: 9.0,
+    rating: "A",
+  });
+  await amadeus.save();
+
+IMPORTANT:This above method is commonly used , and the insert many is not commonly used
+------------------------------------------------------------------------------------------------
+if we use .insert many , then we dont have to use . save , the data is automatically pushed over to
+the database in mongodb
+  Movie.insertMany([
+    { title: "Amelie", year: 2001, score: 8.3, rating: "R" },
+    { title: "Alien", year: 1979, score: 8.1, rating: "R" },
+    { title: "The Iron Giant", year: 1999, score: 7.5, rating: "PG" },
+    { title: "Stand By Me", year: 1986, score: 8.6, rating: "R" },
+    { title: "Moonrise Kingdom", year: 2012, score: 7.3, rating: "PG-13" },
+  ]).then((data) => {
+    console.log("Data inserted");
+    console.log(data);
+  });
+
+-------------------------------------------------------------------------------------------------
