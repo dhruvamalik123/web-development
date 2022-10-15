@@ -74,7 +74,11 @@ Type 3:
       db.<collection>.find({"fieldname.nestedFieldName":value})
 
       for example:
-      
+      db.dogs.find({"personality.childFriendly":true})
+
+      This is used when we have some nested fields inside a collection,then to search an nested field
+      we need to add the quoutes and inside the quotes , we need to add the field and then the nested field ,
+      which are separated by dot (.)
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -136,3 +140,8 @@ Type 3:
 
 ------------------------------------------------------------------------------------------------------------
 
+Query Operators in MongoDB
+
+https://www.mongodb.com/docs/manual/reference/operator/query/
+
+This link contains all the documentation regarding the operators in MongoDB
