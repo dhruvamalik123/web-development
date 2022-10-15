@@ -91,4 +91,7 @@ Type 2:
       db.dogs.update({catFriendly:true},{$set{adopted:"yes",catFriendly:false}})
 
       the difference between Type 1 and Type 2 is that , the former changes all the occurrances while the latter 
-      changes only the first occurrances.
+      changes only the first occurances.
+
+------------------------------------------------------------------------------------------------------------
+
