@@ -82,7 +82,7 @@ Type 1:
 
       In this it first searches the field corresponding to the given condition , then it updates it with whatever 
       follows after $set , and if the field does not exist , it creates the field , else , it updates the
-      existing fields
+      existing fields (only one , first one)
 
 Type 2:
       db.<collection>.updateOne({<condition>},{$set:{<values to be added or updated>}})
@@ -90,8 +90,43 @@ Type 2:
       for example:
       db.dogs.update({catFriendly:true},{$set{adopted:"yes",catFriendly:false}})
 
-      the difference between Type 1 and Type 2 is that , the former changes all the occurrances while the latter 
-      changes only the first occurances.
+      same as Type 1
+
+Type 3:
+      db.<collection>.updateMany({<condition>},{$set:{<values to be added or updated>}})
+
+      for example:
+      db.dogs.updateMany({catFriendly:false},{$set:{isadopted:"no"}})
+
+      changes all the occurrances that match the condition given
+
+------------------------------------------------------------------------------------------------------------
+
+Delete from collection
+
+Type 1:
+      db.<collection>.deleteOne({<condition>})
+
+      for example:
+      db.dogs.deleteOne({name:"Yogi"})
+
+      This deletes the first occurrance of the given condition in the given collection
+
+Type 2:
+      db.<collection>.deleteMany({<condition>})
+
+      for example:
+      db.dogs.deleteMany({catFriendly:true})
+
+      This deletes all the occurances which match with the given condtion
+
+Type 3:
+      db.<collection>.deleteMany({})
+
+      for example:
+      db.dogs.deleteMany({})
+
+      ALERT!!!! This deletes all the data in the given collection
 
 ------------------------------------------------------------------------------------------------------------
 
