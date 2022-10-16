@@ -46,6 +46,8 @@ async function main() {
       console.log(err);
     });
 }
+//we can also use Movie.findOneAndUpdate({title:"Amadeus"},{score:10},{new:true}).then(data=>{console.log(data)})
+//new:true means that it will return the data after its updated,so that we only get the new data
 
 //if there is an error in the async function main() given below,it will return the error
 
