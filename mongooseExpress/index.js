@@ -1,14 +1,15 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-
+const mongoose = require("mongoose");
+const Product = require("./models/product");
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-const mongoose = require("mongoose");
-
 mongoose
-  .connect("mongodb://localhost:27017/movieApp", {
+  .connect("mongodb://localhost:27017/farmStand", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -19,6 +20,34 @@ mongoose
     console.log("OH NO ERROR!!!!");
     console.log(err);
   });
+
+app.get("/products/new", (req, res) => {
+  res.render("products/new");
+});
+app.get("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+  //   console.log(product);
+  res.render("products/show", { product });
+});
+app.get("/products", async (req, res) => {
+  const products = await Product.find({});
+  res.render("products/index", { products });
+});
+app.post("/products", async (req, res) => {
+  const { name, price, category } = req.body;
+  console.log(name);
+  console.log(price);
+  console.log(category);
+  const newProduct = new Product({
+    name: name,
+    price: price,
+    category: category,
+  });
+  const data = await newProduct.save();
+  const products = await Product.find({});
+  res.render("products/index", { products });
+});
 
 app.get("/dog", (req, res) => {
   res.send("WooF");
