@@ -65,7 +65,7 @@ app.patch("/products/:id", async (req, res) => {
     { name: name, price: price, category: category },
     { new: true, runValidators: true }
   );
-  res.redirect(`/products/${product._id}`);
+  res.redirect(`/products/${product._id}`); // we use redirect so the suer cant send request again and again
 });
 
 app.listen(3000, () => {
