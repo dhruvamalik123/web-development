@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const Product = require("./models/product");
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("views", path.join(__dirname, "views"));
@@ -24,6 +26,7 @@ mongoose
 app.get("/products/new", (req, res) => {
   res.render("products/new");
 });
+
 app.get("/products/:id", async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
@@ -48,10 +51,23 @@ app.post("/products", async (req, res) => {
   const products = await Product.find({});
   res.render("products/index", { products });
 });
-
-app.get("/dog", (req, res) => {
-  res.send("WooF");
+app.get("/products/:id/edit", async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+  res.render("products/edit", { product });
 });
+app.patch("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  //   console.log(req.body);
+  const { name, price, category } = req.body;
+  const product = await Product.findByIdAndUpdate(
+    id,
+    { name: name, price: price, category: category },
+    { new: true, runValidators: true }
+  );
+  res.redirect(`/products/${product._id}`);
+});
+
 app.listen(3000, () => {
   console.log("App is listening on port 3000");
 });

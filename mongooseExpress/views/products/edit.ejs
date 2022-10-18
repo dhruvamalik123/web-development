@@ -5,31 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Product</title>
+    <title>Edit</title>
 </head>
 
 <body>
-    <h1>Adding a new Product</h1>
-    <form action="/products" method="POST">
+    <form method="POST" action="/products/<%= product._id %>?_method=PATCH">
         <section>
-            <label for="name">Name :</label>
-            <input type="text" id="name" name="name" placeholder="Product Name">
+            <label for="name">Name : </label>
+            <input type="text" name="name" id="name" value="<%= product.name %> ">
         </section>
         <br>
         <section>
             <label for="price">Price :</label>
-            <input type="number" step="any" id="price" name="price" placeholder="Price">
+            <input type="text" name="price" id="price" value="<%= product.price %> ">
         </section>
         <br>
         <section>
-            <label for="category">Category</label>
+            <label for="category">Category : </label>
             <select name="category" id="category">
                 <option value="fruit">Fruit</option>
                 <option value="vegetable">Vegetable</option>
                 <option value="dairy">Dairy</option>
             </select>
         </section>
-        <button type="submit">submit</button>
+        <br>
+        <button type="submit">Submit</button>
     </form>
 </body>
 
