@@ -23,8 +23,10 @@ mongoose
     console.log(err);
   });
 
+const categories = ["fruit", "vegetable", "dairy", "bakery"];
+
 app.get("/products/new", (req, res) => {
-  res.render("products/new");
+  res.render("products/new", { categories });
 });
 
 app.get("/products/:id", async (req, res) => {
@@ -54,7 +56,12 @@ app.post("/products", async (req, res) => {
 app.get("/products/:id/edit", async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
-  res.render("products/edit", { product });
+  res.render("products/edit", { product, categories });
+});
+app.delete("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  const deletedProduct = await Product.findByIdAndDelete(id);
+  res.redirect("/products");
 });
 app.patch("/products/:id", async (req, res) => {
   const { id } = req.params;
@@ -65,7 +72,7 @@ app.patch("/products/:id", async (req, res) => {
     { name: name, price: price, category: category },
     { new: true, runValidators: true }
   );
-  res.redirect(`/products/${product._id}`); // we use redirect so the suer cant send request again and again
+  res.redirect(`/products/${product._id}`); // we use redirect so the user cant send request again and again
 });
 
 app.listen(3000, () => {

@@ -23,14 +23,19 @@
         <section>
             <label for="category">Category : </label>
             <select name="category" id="category">
-                <option value="fruit">Fruit</option>
+                <% for( let category of categories ) { %>
+                    <option value="<%=category %>" <%=product.category===category? "selected" : "" %> > <%= category %>
+                    </option>"
+                    <% } %>
+                        <!-- <option value="fruit">Fruit</option>
                 <option value="vegetable">Vegetable</option>
-                <option value="dairy">Dairy</option>
+                <option value="dairy">Dairy</option> -->
             </select>
         </section>
         <br>
         <button type="submit">Submit</button>
     </form>
+    <a href="/products">cancel</a>
 </body>
 
 </html>

@@ -15,9 +15,10 @@ const input = document.querySelector("input");
 // const form = document.querySelector("form");
 const outputpage = async () => {
   let out = await searchMovies(input.value);
-
+  console.log(out);
   res = out.results;
   console.log(res);
+
   for (let r of res) {
     // console.log(r);
     if (r.poster_path != null) {
